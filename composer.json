@@ -1,0 +1,19 @@
+{
+  "name": "ryuko/modules-pattern-template",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Core\\": "app/core/",
+      "Components\\": "app/components/",
+      "Modules\\": "app/modules/",
+      "Config\\": "app/config"
+    }
+  },
+  "authors": [
+    {
+      "name": "SyahrulBhudiF",
+      "email": "syahrul4w@gmail.com"
+    }
+  ],
+  "require": {}
+}
