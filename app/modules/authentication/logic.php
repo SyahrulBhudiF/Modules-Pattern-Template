@@ -6,7 +6,7 @@ use Core\Helpers;
 use JetBrains\PhpStorm\NoReturn;
 use PDO;
 
-class Logic
+class logic
 {
     private PDO $db;
     private array $config;
@@ -35,12 +35,13 @@ class Logic
             if ($user && password_verify($password, $user['password'])) {
                 Helpers::sessionStart($this->config['session_cookie_name']);
                 $_SESSION['user_id'] = $user['id'];
-                Helpers::redirect('index.php?module=Dashboard&action=index');
+                Helpers::redirect('/dashboard');
 
             } else {
                 $error = 'Invalid credentials';
             }
         }
+
         require __DIR__ . '/view.php';
     }
 

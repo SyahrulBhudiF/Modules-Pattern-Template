@@ -15,5 +15,7 @@
       "email": "syahrul4w@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "ext-pdo": "*"
+  }
 }
