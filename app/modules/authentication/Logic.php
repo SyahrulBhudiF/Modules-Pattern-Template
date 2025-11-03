@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Authentication;
+namespace Modules\authentication;
 
 use Core\Helpers;
 use JetBrains\PhpStorm\NoReturn;
 use PDO;
 
-class logic
+class Logic
 {
     private PDO $db;
     private array $config;
@@ -19,7 +19,13 @@ class logic
 
     public function index(): void
     {
-        require __DIR__ . '/view.php';
+        Helpers::render(
+            __DIR__ . '/views/login.php', [
+            'title' => 'Login Page',
+            'error' => null
+        ],
+            'auth'
+        );
     }
 
     public function login(): void
@@ -42,7 +48,10 @@ class logic
             }
         }
 
-        require __DIR__ . '/view.php';
+        Helpers::render(__DIR__ . '/views/login.php', [
+            'title' => 'Login Page',
+            'error' => $error ?? null
+        ], 'auth');
     }
 
     #[NoReturn]

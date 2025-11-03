@@ -4,7 +4,7 @@
   "autoload": {
     "psr-4": {
       "Core\\": "app/core/",
-      "Components\\": "app/components/",
+      "Components\\": "app/views/",
       "Modules\\": "app/modules/",
       "Config\\": "app/config"
     }

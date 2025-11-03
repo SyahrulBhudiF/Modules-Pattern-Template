@@ -7,7 +7,7 @@ require_once __DIR__ . '/../app/config/config.php';
 require_once __DIR__ . '/../app/config/db.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$config   = require __DIR__ . '/../app/config/config.php';
+$config = require __DIR__ . '/../app/config/config.php';
 $dbConfig = require __DIR__ . '/../app/config/db.php';
 
 if (!is_array($dbConfig)) {
@@ -30,7 +30,7 @@ $action = preg_replace('/[^a-z0-9_]/', '', strtolower($action));
 $params = array_slice($segments, 2);
 
 $moduleClass = '\\Modules\\' . ucfirst($module) . '\\Logic';
-$moduleFile = __DIR__ . '/../app/modules/' . $module . '/logic.php';
+$moduleFile = __DIR__ . '/../app/modules/' . $module . '/Logic.php';
 
 if (file_exists($moduleFile)) {
     require_once $moduleFile;

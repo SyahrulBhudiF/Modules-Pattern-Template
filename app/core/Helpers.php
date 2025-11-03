@@ -15,7 +15,7 @@ class Helpers
     }
 
     #[NoReturn]
-    public static function redirect($url)
+    public static function redirect($url): void
     {
         header('Location: ' . $url);
         exit;
@@ -35,5 +35,17 @@ class Helpers
         if (!isset($_SESSION['user_id'])) {
             self::redirect('index.php?module=Authentication&action=index');
         }
+    }
+
+    public static function render(string $viewPath, array $data = [], string $layout = 'main'): void
+    {
+        extract($data, EXTR_SKIP);
+        ob_start();
+        require $viewPath;
+        $content = ob_get_clean();
+
+        $title = $data['title'] ?? null;
+
+        require __DIR__ . "/../views/layouts/{$layout}.php";
     }
 }
