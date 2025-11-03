@@ -55,10 +55,10 @@ class Logic
     }
 
     #[NoReturn]
-    public function logout()
+    public function logout(): void
     {
         Helpers::sessionStart($this->config['session_cookie_name']);
         session_destroy();
-        Helpers::redirect('index.php?module=Authentication&action=index');
+        Helpers::redirect('/authentication');
     }
 }
